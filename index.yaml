@@ -1,114 +1,93 @@
 apiVersion: v1
 entries:
-  common:
-  - annotations:
-      category: Infrastructure
-      licenses: Apache-2.0
-    apiVersion: v2
-    appVersion: 2.31.4
-    created: "2025-10-15T14:45:35.1235292+03:00"
-    description: A Library Helm Chart for grouping common logic between bitnami charts.
-      This chart is not deployable by itself.
-    digest: 91311247f88ab95dd202d03971294561ff70bc65fd45e5de7705eb91fd0f310c
-    home: https://bitnami.com
-    icon: https://dyltqmyl993wv.cloudfront.net/downloads/logos/bitnami-mark.png
-    keywords:
-    - common
-    - helper
-    - template
-    - function
-    - bitnami
-    maintainers:
-    - name: Broadcom, Inc. All Rights Reserved.
-      url: https://github.com/bitnami/charts
-    name: common
-    sources:
-    - https://github.com/bitnami/charts/tree/main/bitnami/common
-    type: library
-    urls:
-    - https://heymas7.github.io/helm/charts/common-2.31.4.tgz
-    version: 2.31.4
-  keycloak:
-  - annotations:
-      images: |
-        - name: keycloak
-          image: docker.io/bitnami/keycloak:26.3.3-debian-12-r0
-        - name: keycloak-config-cli
-          image: docker.io/bitnami/keycloak-config-cli:6.4.0-debian-12-r11
-      licenses: Apache-2.0
-      tanzuCategory: application
-    apiVersion: v2
-    appVersion: 26.3.3
-    created: "2025-10-15T14:45:35.1225278+03:00"
+  accounts:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-10-15T23:14:50.1819374+03:00"
     dependencies:
-    - condition: postgresql.enabled
-      name: postgresql
-      repository: oci://registry-1.docker.io/bitnamicharts
-      version: 16.x.x
-    - name: common
-      repository: oci://registry-1.docker.io/bitnamicharts
-      tags:
-      - bitnami-common
-      version: 2.x.x
-    description: Keycloak is a high performance Java-based identity and access management
-      solution. It lets developers add an authentication layer to their applications
-      with minimum effort.
-    digest: 853c187d3fb41ce789c81d55e298b3b6b732c04f6e98be8136f47f5c7795922f
-    home: https://bitnami.com
-    icon: https://dyltqmyl993wv.cloudfront.net/assets/stacks/keycloak/img/keycloak-stack-220x234.png
-    keywords:
-    - keycloak
-    - access-management
-    maintainers:
-    - name: Broadcom, Inc. All Rights Reserved.
-      url: https://github.com/bitnami/charts
-    name: keycloak
-    sources:
-    - https://github.com/bitnami/charts/tree/main/bitnami/keycloak
+    - name: eazybank-common
+      repository: file://../../eazybank-common
+      version: 0.1.0
+    description: A Helm chart for Kubernetes
+    digest: a16376c94b29333498df0dbe184e82d8e41aa0bcfe8f63adef592c53c97a10ba
+    name: accounts
+    type: application
     urls:
-    - https://heymas7.github.io/helm/keycloak-25.2.5.tgz
-    version: 25.2.5
-  postgresql:
-  - annotations:
-      category: Database
-      images: |
-        - name: os-shell
-          image: docker.io/bitnami/os-shell:12-debian-12-r51
-        - name: postgres-exporter
-          image: docker.io/bitnami/postgres-exporter:0.17.1-debian-12-r16
-        - name: postgresql
-          image: docker.io/bitnami/postgresql:17.6.0-debian-12-r4
-      licenses: Apache-2.0
-      tanzuCategory: service
-    apiVersion: v2
-    appVersion: 17.6.0
-    created: "2025-10-15T14:45:35.1295281+03:00"
+    - https://heymas7.github.io/helm/accounts-0.1.0.tgz
+    version: 0.1.0
+  configserver:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-10-15T23:14:50.1829079+03:00"
     dependencies:
-    - name: common
-      repository: oci://registry-1.docker.io/bitnamicharts
-      tags:
-      - bitnami-common
-      version: 2.x.x
-    description: PostgreSQL (Postgres) is an open source object-relational database
-      known for reliability and data integrity. ACID-compliant, it supports foreign
-      keys, joins, views, triggers and stored procedures.
-    digest: d7d0f7d0342d56504f3bb2f77867e0b7173f6322f11266b74e2d0eda53365901
-    home: https://bitnami.com
-    icon: https://dyltqmyl993wv.cloudfront.net/assets/stacks/postgresql/img/postgresql-stack-220x234.png
-    keywords:
-    - postgresql
-    - postgres
-    - database
-    - sql
-    - replication
-    - cluster
-    maintainers:
-    - name: Broadcom, Inc. All Rights Reserved.
-      url: https://github.com/bitnami/charts
-    name: postgresql
-    sources:
-    - https://github.com/bitnami/charts/tree/main/bitnami/postgresql
+    - name: eazybank-common
+      repository: file://../../eazybank-common
+      version: 0.1.0
+    description: A Helm chart for Kubernetes
+    digest: 4c4e3b3a6d5a3aa3c4b4155c178bf357eba03f3304c30b4990b45e8f2ce4439e
+    name: configserver
+    type: application
     urls:
-    - https://heymas7.github.io/helm/charts/postgresql-16.7.27.tgz
-    version: 16.7.27
-generated: "2025-10-15T14:45:35.1135585+03:00"
+    - https://heymas7.github.io/helm/configserver-0.1.0.tgz
+    version: 0.1.0
+  eurekaserver:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-10-15T23:14:50.1839367+03:00"
+    dependencies:
+    - name: eazybank-common
+      repository: file://../../eazybank-common
+      version: 0.1.0
+    description: A Helm chart for Kubernetes
+    digest: 3372b37842cd9e3db1dbdd2ee07db57502890d9fa70fc0574e1c1deab36615a5
+    name: eurekaserver
+    type: application
+    urls:
+    - https://heymas7.github.io/helm/eurekaserver-0.1.0.tgz
+    version: 0.1.0
+  gatewayserver:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-10-15T23:14:50.1839367+03:00"
+    dependencies:
+    - name: eazybank-common
+      repository: file://../../eazybank-common
+      version: 0.1.0
+    description: A Helm chart for Kubernetes
+    digest: b6c9f9eefc8b6b2cabefce842de7fa1b4829331ceab452dbe9cefec2ac6be534
+    name: gatewayserver
+    type: application
+    urls:
+    - https://heymas7.github.io/helm/gatewayserver-0.1.0.tgz
+    version: 0.1.0
+  loans:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-10-15T23:14:50.1849384+03:00"
+    dependencies:
+    - name: eazybank-common
+      repository: file://../../eazybank-common
+      version: 0.1.0
+    description: A Helm chart for Kubernetes
+    digest: 854e7182b8164e96121521706e9e28efdbd6e0552fd5d4952605fe0ad84f8842
+    name: loans
+    type: application
+    urls:
+    - https://heymas7.github.io/helm/loans-0.1.0.tgz
+    version: 0.1.0
+  message:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-10-15T23:14:50.1859366+03:00"
+    dependencies:
+    - name: eazybank-common
+      repository: file://../../eazybank-common
+      version: 0.1.0
+    description: A Helm chart for Kubernetes
+    digest: d6f6f796a7adc9a6ac3e9cce7e0008166668c0adaba87fd9bf7a141f86206bef
+    name: message
+    type: application
+    urls:
+    - https://heymas7.github.io/helm/message-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-10-15T23:14:50.1809367+03:00"
